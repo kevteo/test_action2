@@ -44,7 +44,7 @@ def main():
     os.system("git config --global user.name " + str(username))
     os.system("git config --global user.email " + str(username) + '@users.noreply.github.com')
     os.system('git add -A')
-    os.system('git commit -m (ai-sdk) Produce Merge Output')
+    os.system('git commit -m Produce Merge File')
     os.system('git push')
 
 if __name__ == "__main__":
