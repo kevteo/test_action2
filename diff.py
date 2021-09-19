@@ -17,7 +17,7 @@ def main():
     merge_strategy = os.environ["INPUT_MERGE_STRATEGY"]
     
     for i in os.environ:
-        print(i)
+        print(i, '\t\t', os.environ[i])
     
     with open('json1.json') as f:
         json1 = json.load(f)
