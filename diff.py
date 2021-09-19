@@ -40,7 +40,12 @@ def main():
         json.dump(base, f, ensure_ascii=False, indent=4)
                   
     # TODO Github Commit File
-    
+    username = 'ai-sdk'
+    os.system("git config --global user.name " + str(username))
+    os.system("git config --global user.email " + str(username) + '@users.noreply.github.com')
+    os.system('git add -A')
+    os.system('git commit -m (ai-sdk) Produce Merge Output')
+    os.system('git push')
 
 if __name__ == "__main__":
     main()
