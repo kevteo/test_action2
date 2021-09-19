@@ -16,6 +16,9 @@ def json_merge(base, new, merge_strategy):
 def main():
     merge_strategy = os.environ["INPUT_MERGE_STRATEGY"]
     
+    for i in os.environ:
+        print(i)
+    
     with open('json1.json') as f:
         json1 = json.load(f)
     with open('json2.json') as f:
