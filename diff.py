@@ -44,6 +44,8 @@ def main():
                   
     # TODO Github Commit File
     username = 'ai-sdk'
+    os.system("which git")
+    print(os.system("which git"))
     os.system("git config --global user.name " + str(username))
     os.system("git config --global user.email " + str(username) + '@users.noreply.github.com')
     os.system('git add -A')
