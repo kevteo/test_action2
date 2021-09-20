@@ -13,8 +13,10 @@ RUN apt-get update && apt-get install -y git
 # COPY --from=builder /app /app
 # WORKDIR /app
 ENV PYTHONPATH /app
-ENTRYPOINT ["bash","entrypoint.prod.sh"]
 CMD ["/app/diff.py"]
 
-# RUN git add -A
-# RUN git commit -m "Test1236"
+RUN echo $GITHUB_REPOSITORY
+RUN git clone "https://github.com/$GITHUB_REPOSITORY.git"
+RUN git add -A
+RUN git commit -m "Test1236"
+RUN git push
