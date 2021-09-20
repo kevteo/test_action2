@@ -4,6 +4,7 @@ import json
 from flatten_json import flatten
 from jsonmerge import Merger
 from jsondiff import diff
+from github import Github
 
 
 def json_merge(base, new, merge_strategy):
@@ -44,8 +45,6 @@ def main():
                   
     # TODO Github Commit File
     username = 'ai-sdk'
-    os.system("which git")
-    print(os.system("which git"))
     os.system("git config --global user.name " + str(username))
     os.system("git config --global user.email " + str(username) + '@users.noreply.github.com')
     os.system('git add -A')
