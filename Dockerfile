@@ -6,6 +6,7 @@ WORKDIR /app
 # We are installing a dependency here directly into our app source dir
 RUN pip install --target=/app -r requirements.txt
 RUN apt-get update && apt-get install -y git
+RUN PAT=${secrets.GITHUB_TOKEN}
 
 # A distroless container image with Python and some basics like SSL certificates
 # https://github.com/GoogleContainerTools/distroless
@@ -14,3 +15,5 @@ COPY --from=builder /app /app
 WORKDIR /app
 ENV PYTHONPATH /app
 CMD ["/app/diff.py"]
+
+# RUN git clone https://github.com/kevteo/test_action.git
