@@ -13,14 +13,14 @@ RUN apt-get update && apt-get install -y git
 # COPY --from=builder /app /app
 # WORKDIR /app
 
-RUN git clone "https://github.com/kevteo/test_action.git"
-WORKDIR "/test_action"
+
 
 ENV PYTHONPATH /app
 CMD ["/app/diff.py"]
 
 RUN echo ${GITHUB_REPOSITORY}
-
+RUN git clone "https://github.com/kevteo/test_action.git"
+WORKDIR "/test_action"
 RUN git add -A
 RUN git commit -m "Test1236"
 RUN git push
