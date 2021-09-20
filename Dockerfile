@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y git
 # COPY --from=builder /app /app
 # WORKDIR /app
 ENV PYTHONPATH /app
+ENTRYPOINT ["bash","entrypoint.prod.sh"]
 CMD ["/app/diff.py"]
 
 # RUN git add -A
