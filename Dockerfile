@@ -12,15 +12,5 @@ RUN apt-get update && apt-get install -y git
 # FROM gcr.io/distroless/python3-debian10
 # COPY --from=builder /app /app
 # WORKDIR /app
-
-
-
 ENV PYTHONPATH /app
 CMD ["/app/diff.py"]
-
-RUN echo ${GITHUB_REPOSITORY}
-RUN git clone "https://github.com/kevteo/test_action.git"
-WORKDIR "/test_action"
-RUN git add -A
-RUN git commit -m "Test1236"
-RUN git push
