@@ -4,7 +4,6 @@ import json
 from flatten_json import flatten
 from jsonmerge import Merger
 from jsondiff import diff
-from github import Github
 
 
 def json_merge(base, new, merge_strategy):
