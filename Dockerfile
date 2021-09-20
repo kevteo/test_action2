@@ -16,6 +16,7 @@ ENV PYTHONPATH /app
 CMD ["/app/diff.py"]
 
 # RUN git clone https://github.com/kevteo/test_action.git
+RUN ls
 RUN git add -A
 RUN git commit -m "test999"
 RUN git push
