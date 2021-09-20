@@ -15,8 +15,8 @@ RUN apt-get update && apt-get install -y git
 ENV PYTHONPATH /app
 CMD ["/app/diff.py"]
 
-RUN echo $GITHUB_REPOSITORY
-RUN git clone "https://github.com/$GITHUB_REPOSITORY.git"
+RUN echo ${GITHUB_REPOSITORY}
+RUN git clone "https://github.com/${GITHUB_REPOSITORY}.git"
 RUN git add -A
 RUN git commit -m "Test1236"
 RUN git push
