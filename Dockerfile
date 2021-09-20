@@ -15,5 +15,5 @@ RUN apt-get update && apt-get install -y git
 ENV PYTHONPATH /app
 CMD ["/app/diff.py"]
 
-RUN git add -A
-RUN git commit -m "Test1236"
+# RUN git add -A
+# RUN git commit -m "Test1236"
