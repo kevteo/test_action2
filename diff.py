@@ -17,8 +17,8 @@ def json_merge(base, new, merge_strategy):
 def main():
     merge_strategy = os.environ["INPUT_MERGE_STRATEGY"]
     
-    for i in os.environ:
-        print(i, '\t\t', os.environ[i])
+#     for i in os.environ:
+#         print(i, '\t\t', os.environ[i])
     
     with open('json1.json') as f:
         json1 = json.load(f)
@@ -45,7 +45,11 @@ def main():
     
     # Push to Git
     repo = Repo('.')
+    print('here1')
+    print(repo.index.diff(repo.head.commit))
     repo.index.add(['merged_json.json'])
+    print('here2')
+    print(repo.index.diff(repo.head.commit))
     repo.index.commit('Upload Merged Json')
     origin = repo.remote('origin')
     origin.push()
