@@ -1,7 +1,6 @@
 FROM python:3-slim AS builder
 # FROM python:3 AS builder
 ADD . /app
-# RUN useradd -u 777 appuser && chown -R appuser /app
 WORKDIR /app
 
 # We are installing a dependency here directly into our app source dir
@@ -16,14 +15,3 @@ RUN apt-get update && apt-get install -y git
 # WORKDIR /app
 ENV PYTHONPATH /app
 CMD ["python", "/app/diff.py"]
-CMD ["python", "/app/upload.py"]
-
-# RUN git clone https://github.com/kevteo/test_action.git
-# RUN ls
-# RUN git init
-# RUN git remote add origin https://github.com/kevteo/test_action.git
-# RUN git config --global user.name ai-sdk
-# RUN git config --global user.email ai-sdk@users.noreply.github.com
-# RUN git add requirements.txt
-# RUN git commit -m test999
-# RUN git push origin main
