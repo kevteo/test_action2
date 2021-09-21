@@ -4,8 +4,8 @@ import json
 from flatten_json import flatten
 from jsonmerge import Merger
 from jsondiff import diff
-from github import Github
-
+# from github import Github
+from git import Repo
 
 def json_merge(base, new, merge_strategy):
     schema = {'mergeStrategy': merge_strategy}
@@ -52,6 +52,13 @@ def main():
 #     os.system('git add -A')
 #     os.system('git commit -m Produce Merge File')
 #     os.system('git push origin main')
+
+
+
+
+Repo.clone_from("https://github.com/official-himanshu/JavaPro.git", "/home/knoldus/clone")
+
+
 
 if __name__ == "__main__":
     main()
