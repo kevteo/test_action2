@@ -54,9 +54,12 @@ def main():
     os.system('git push origin main')
 
 
+repo = Repo('.')  # if repo is CWD just do '.'
 
-
-Repo.clone_from("https://github.com/official-himanshu/JavaPro.git", "/home/knoldus/clone")
+repo.index.add(['bla.txt'])
+repo.index.commit('my commit description')
+origin = repo.remote('origin')
+origin.push()
 
 
 
