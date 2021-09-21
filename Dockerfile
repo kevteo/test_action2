@@ -1,7 +1,7 @@
 FROM python:3-slim AS builder
 # FROM python:3 AS builder
-RUN useradd -u 5678 appuser && chown -R appuser /app
 ADD . /app
+RUN useradd -u 5678 appuser && chown -R appuser /app
 WORKDIR /app
 
 # We are installing a dependency here directly into our app source dir
