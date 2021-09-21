@@ -46,10 +46,10 @@ def main():
     # Push to Git
     repo = Repo('.')
     print('here1')
-    print(repo.index.diff(repo.head.commit))
+    print(repo.git.status())
     repo.index.add(['merged_json.json'])
     print('here2')
-    print(repo.index.diff(repo.head.commit))
+    print(repo.git.status())
     repo.index.commit('Upload Merged Json')
     origin = repo.remote('origin')
     origin.push()
