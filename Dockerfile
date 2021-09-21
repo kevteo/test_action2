@@ -23,4 +23,4 @@ RUN git config --global user.name ai-sdk
 RUN git config --global user.email ai-sdk@users.noreply.github.com
 RUN git add requirements.txt
 RUN git commit -m test999
-RUN git push --all origin
+RUN git push origin main
