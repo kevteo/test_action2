@@ -1,7 +1,7 @@
 FROM python:3.9 AS builder
 # FROM python:3 AS builder
 ADD . /app
-USER root
+RUN useradd -u 777 appuser && chown -R appuser /app
 WORKDIR /app
 
 # We are installing a dependency here directly into our app source dir
