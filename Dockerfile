@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y git
 # COPY --from=builder /app /app
 # WORKDIR /app
 ENV PYTHONPATH /app
-CMD ["/app/diff.py"]
+CMD ["python", "/app/diff.py"]
 
 # RUN git clone https://github.com/kevteo/test_action.git
 # RUN ls
