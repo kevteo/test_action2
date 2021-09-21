@@ -19,8 +19,8 @@ CMD ["/app/diff.py"]
 RUN ls
 RUN git init
 RUN git remote add origin https://github.com/kevteo/test_action.git
-RUN git config --global user.name "kevteo"
-RUN git config --global user.email "noreply@ai-sdk.com"
+RUN git config --global user.name ai-sdk
+RUN git config --global user.email ai-sdk@users.noreply.github.com
 RUN git add requirements.txt
-RUN git commit -m "test999"
+RUN git commit -m test999
 RUN git push --all origin
