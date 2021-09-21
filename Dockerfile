@@ -1,7 +1,7 @@
 FROM python:3-slim AS builder
 # FROM python:3 AS builder
 ADD . /app
-RUN ["chmod", "+x", "/app/diff.py"]
+USER root
 WORKDIR /app
 
 # We are installing a dependency here directly into our app source dir
