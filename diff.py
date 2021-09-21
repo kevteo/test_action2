@@ -54,12 +54,14 @@ def main():
     os.system('git push origin main')
 
 
-repo = Repo('.')  # if repo is CWD just do '.'
+    print('start')
+    repo = Repo('.')  # if repo is CWD just do '.'
 
-repo.index.add(['bla.txt'])
-repo.index.commit('my commit description')
-origin = repo.remote('origin')
-origin.push()
+    repo.index.add(['merged_json.json'])
+    repo.index.commit('my commit description')
+    origin = repo.remote('origin')
+    origin.push()
+    print('end')
 
 
 
