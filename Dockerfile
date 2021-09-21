@@ -1,10 +1,11 @@
 FROM python:3-slim AS builder
 # FROM python:3 AS builder
-ADD . .
-
+ADD . /app
+RUN ["chmod", "+x", "/app/diff.py"]
+WORKDIR /app
 
 # We are installing a dependency here directly into our app source dir
-RUN pip install --target=. -r requirements.txt
+RUN pip install --target=/app -r requirements.txt
 RUN apt-get update && apt-get install -y git
 
 
@@ -12,9 +13,9 @@ RUN apt-get update && apt-get install -y git
 # https://github.com/GoogleContainerTools/distroless
 # FROM gcr.io/distroless/python3-debian10
 # COPY --from=builder /app /app
-WORKDIR .
-ENV PYTHONPATH .
-CMD ["diff.py"]
+# WORKDIR /app
+ENV PYTHONPATH /app
+CMD ["/app/diff.py"]
 
 # RUN git clone https://github.com/kevteo/test_action.git
 # RUN ls
