@@ -17,6 +17,8 @@ CMD ["/app/diff.py"]
 
 # RUN git clone https://github.com/kevteo/test_action.git
 RUN ls
-RUN git add -A
+RUN git init
+RUN git remote add origin https://github.com/kevteo/test_action.git
+RUN git add merged_json.json
 RUN git commit -m "test999"
 RUN git push
