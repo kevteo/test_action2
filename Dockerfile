@@ -19,6 +19,6 @@ CMD ["/app/diff.py"]
 RUN ls
 RUN git init
 RUN git remote add origin https://github.com/kevteo/test_action.git
-RUN git add merged_json.json
+RUN git add json1.json
 RUN git commit -m "test999"
 RUN git push
