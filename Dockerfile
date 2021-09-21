@@ -1,11 +1,10 @@
 FROM python:3-slim AS builder
 # FROM python:3 AS builder
-ADD . /app
-RUN useradd -u 5678 appuser && chown -R appuser /app
-WORKDIR /app
+ADD . .
+
 
 # We are installing a dependency here directly into our app source dir
-RUN pip install --target=/app -r requirements.txt
+RUN pip install --target=. -r requirements.txt
 RUN apt-get update && apt-get install -y git
 
 
@@ -14,8 +13,7 @@ RUN apt-get update && apt-get install -y git
 # FROM gcr.io/distroless/python3-debian10
 # COPY --from=builder /app /app
 # WORKDIR /app
-ENV PYTHONPATH /app
-CMD ["/app/diff.py"]
+CMD ["diff.py"]
 
 # RUN git clone https://github.com/kevteo/test_action.git
 # RUN ls
