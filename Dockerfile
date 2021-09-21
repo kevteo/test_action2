@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y git
 # https://github.com/GoogleContainerTools/distroless
 # FROM gcr.io/distroless/python3-debian10
 # COPY --from=builder /app /app
-# WORKDIR /app
+WORKDIR .
 CMD ["diff.py"]
 
 # RUN git clone https://github.com/kevteo/test_action.git
