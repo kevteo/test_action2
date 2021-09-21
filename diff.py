@@ -44,24 +44,11 @@ def main():
         json.dump(base, f, ensure_ascii=False, indent=4)
     
     # Push to Git
-    username = 'ai-sdk'
-    os.system("git config --global user.name " + str(username))
-    os.system("git config --global user.email " + str(username) + '@users.noreply.github.com')
-    print('Status:')
-    print(os.system('git status'))
-    os.system('git add -A')
-    os.system('git commit -m Produce Merge File')
-    os.system('git push origin main')
-
-
-    print('start')
-    repo = Repo('.')  # if repo is CWD just do '.'
-
+    repo = Repo('.')
     repo.index.add(['merged_json.json'])
-    repo.index.commit('my commit description')
+    repo.index.commit('Upload Merged Json')
     origin = repo.remote('origin')
     origin.push()
-    print('end')
 
 
 
