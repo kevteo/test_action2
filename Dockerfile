@@ -1,5 +1,5 @@
-# FROM python:3-slim AS builder
-FROM python:3 AS builder
+FROM python:3-slim AS builder
+# FROM python:3 AS builder
 ADD . /app
 WORKDIR /app
 
@@ -16,11 +16,11 @@ ENV PYTHONPATH /app
 CMD ["/app/diff.py"]
 
 # RUN git clone https://github.com/kevteo/test_action.git
-RUN ls
-RUN git init
-RUN git remote add origin https://github.com/kevteo/test_action.git
-RUN git config --global user.name ai-sdk
-RUN git config --global user.email ai-sdk@users.noreply.github.com
-RUN git add requirements.txt
-RUN git commit -m test999
-RUN git push origin main
+# RUN ls
+# RUN git init
+# RUN git remote add origin https://github.com/kevteo/test_action.git
+# RUN git config --global user.name ai-sdk
+# RUN git config --global user.email ai-sdk@users.noreply.github.com
+# RUN git add requirements.txt
+# RUN git commit -m test999
+# RUN git push origin main
