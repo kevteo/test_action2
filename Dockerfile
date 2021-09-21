@@ -1,4 +1,4 @@
-FROM python:3-slim AS builder
+FROM python:3.9 AS builder
 # FROM python:3 AS builder
 ADD . /app
 USER root
