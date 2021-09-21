@@ -1,12 +1,13 @@
 FROM python:3-slim AS builder
 # FROM python:3 AS builder
+RUN useradd -u 5678 appuser && chown -R appuser /app
 ADD . /app
 WORKDIR /app
 
 # We are installing a dependency here directly into our app source dir
 RUN pip install --target=/app -r requirements.txt
 RUN apt-get update && apt-get install -y git
-RUN useradd -u 5678 appuser && chown -R appuser /app
+
 
 # A distroless container image with Python and some basics like SSL certificates
 # https://github.com/GoogleContainerTools/distroless
