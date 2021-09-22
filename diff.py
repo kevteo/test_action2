@@ -12,6 +12,18 @@ def json_merge(base, new, merge_strategy):
     base = merger.merge(base, new)
     return base
 
+def generate_number_changes(difference_history):
+    num_changes = {}
+    for difference in difference_history:
+        if type(difference) is list:
+            continue
+        
+        for key in difference.keys():
+            if key in num_changes:
+                num_changes[key] +=1 
+            else:
+                num_changes[key] = 1
+    return num_changes
 
 def main():
     # Read Inputs
