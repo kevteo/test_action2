@@ -15,11 +15,9 @@ def json_merge(base, new, merge_strategy):
 
 def main():
     # Read Inputs
-    merge_strategy = os.environ["INPUT_MERGE_STRATEGY"]
-    branch = os.environment["GITHUB_REF"]
-    merge_strategy = str(merge_strategy)
-    branch = str(branch)
-    
+    merge_strategy = str(os.environ["INPUT_MERGE_STRATEGY"])
+    branch = str(os.environ["GITHUB_REF"])
+
     # Print
     print("Merge Strategy: ", merge_strategy)
     print("Branch: ", branch)
