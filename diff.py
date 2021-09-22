@@ -4,7 +4,6 @@ import json
 from flatten_json import flatten
 from jsonmerge import Merger
 from jsondiff import diff
-# from github import Github
 from git import Repo
 
 def json_merge(base, new, merge_strategy):
@@ -15,47 +14,56 @@ def json_merge(base, new, merge_strategy):
 
 
 def main():
-    merge_strategy = os.environ["INPUT_MERGE_STRATEGY"]
+    # Read Inputs
+    merge_strategy = str(os.environ["INPUT_MERGE_STRATEGY"])
+    branch = str(os.environment["GITHUB_REF"])
     
-#     for i in os.environ:
-#         print(i, '\t\t', os.environ[i])
+    # Print
+    print("Merge Strategy: ", merge_strategy)
+    print("Branch: ", branch)
     
+    # Read Files
     with open('json1.json') as f:
         json1 = json.load(f)
     with open('json2.json') as f:
         json2 = json.load(f)
-      
+    
+    # Flatten, Merge, Difference & Number of changes per key
     base = None
     json1 = flatten(json1)
     json2 = flatten(json2)
     base = json_merge(base, json1, merge_strategy)
     base = json_merge(base, json2, merge_strategy)
-    
-    # Output to workflow variable (TODO remove when able to use github commit)
-    print(f"::set-output name=merge_strategy::{merge_strategy}")
-    print(f"::set-output name=merged_json::{base}")
-
-    # Difference_history & Number of changes per key
     # difference_history = generate_difference_history(json_history_1, json_history_2)
     # num_changes = generate_number_changes(difference_history)
     
-    # Write File
+    # Write Files
     with open('merged_json.json', 'w', encoding='utf-8') as f:
         json.dump(base, f, ensure_ascii=False, indent=4)
     
     # Push to Git
     repo = Repo('.')
+    num_commits = str(len(list(repo.iter_commits('HEAD'))))
+    
+    print('here0')
+    print(repo.git.status())
+    
+    repo.git.reset()
+
     print('here1')
     print(repo.git.status())
+    
     repo.index.add(['merged_json.json'])
+    
     print('here2')
     print(repo.git.status())
-    print('here3')
-    print(repo.git.log(p=True))
+    
     repo.index.commit('Upload Merged Json')
-    origin = repo.remote('origin')
+    origin = repo.remote('origin HEAD~1:'+branch)
     origin.push()
-
+    
+    print('here3')
+    print(repo.git.status())
 
 
 if __name__ == "__main__":
