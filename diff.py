@@ -43,28 +43,11 @@ def main():
     
     # Push to Git
     repo = Repo('.')
-    num_commits = str(len(list(repo.iter_commits('HEAD'))))
-    
-    print('here0')
-    print(repo.git.status())
-    
     repo.git.reset()
-
-    print('here1')
-    print(repo.git.status())
-    
     repo.index.add(['merged_json.json'])
-    
-    print('here2')
-    print(repo.git.status())
-    
     repo.index.commit('Upload Merged Json')
     origin = repo.remote('origin')
     origin.push()
-    
-    print('here3')
-    print(repo.git.status())
-    
     repo.index.add(['json1.json', 'json2.json'])
 
 if __name__ == "__main__":
