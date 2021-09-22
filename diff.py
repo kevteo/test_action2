@@ -67,7 +67,7 @@ def main():
     print('here3')
     print(repo.git.status())
     
-    repo.index.add(['json1.json', 'json2.json])
+    repo.index.add(['json1.json', 'json2.json'])
 
 if __name__ == "__main__":
     main()
