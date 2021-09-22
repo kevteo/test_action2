@@ -1,6 +1,6 @@
 import os
 import json
-# from apps.util import json_merge
+from apps.util import json_merge, generate_number_changes
 from flatten_json import flatten
 from jsonmerge import Merger
 from jsondiff import diff
@@ -16,11 +16,9 @@ def json_merge(base, new, merge_strategy):
 def main():
     # Read Inputs
     merge_strategy = str(os.environ["INPUT_MERGE_STRATEGY"])
-    branch = str(os.environ["GITHUB_REF"])
 
-    # Print
+    # Print inputs
     print("Merge Strategy: ", merge_strategy)
-    print("Branch: ", branch)
     
     # Read Files
     with open('json1.json') as f:
@@ -34,8 +32,8 @@ def main():
     json2 = flatten(json2)
     base = json_merge(base, json1, merge_strategy)
     base = json_merge(base, json2, merge_strategy)
-    # difference_history = generate_difference_history(json_history_1, json_history_2)
-    # num_changes = generate_number_changes(difference_history)
+    difference_history = generate_difference_history(json_history_1, json_history_2)
+    num_changes = generate_number_changes(difference_history)
     
     # Write Files
     with open('merged_json.json', 'w', encoding='utf-8') as f:
