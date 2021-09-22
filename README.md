@@ -1,5 +1,14 @@
-# test_action2
+# AI-SDK Action
 
+AI-SDK Action allows users to 
+* Fetch JSON data from two sources
+* Merge both JSON data via three Merging Strategies 
+
+
+# Usage
+Fields that can be modified
+1. Both ```http_url```
+2. ```merge_strategy``` with options (overwrite, objectMerge, version)
 
 ```python
 name: ai-sdk
@@ -34,8 +43,11 @@ jobs:
           downloaded_filename: json2.json
       - name: Merge Data
         id: mergeData
-        #uses: 0research/ai-sdk@main
-        uses: kevteo/test_action2@main
+        uses: 0research/ai-sdk@main
         with:
           merge_strategy: objectMerge   
 ```
+
+
+# Feedback
+We would love to receive feedback on the action from users to understand how we can improve.
