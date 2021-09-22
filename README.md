@@ -1,14 +1,14 @@
 # AI-SDK Action
 
 AI-SDK Action allows users to 
-* Fetch JSON data from two sources
-* Merge both JSON data via three Merging Strategies 
+* Periodically Fetch JSON data from two sources
+* Merge both JSON data via Merging Strategies 
 
 
 # Usage
 * Under ```on```. Users are required to configure code to their specific needs.
 * Under ```jobs```, the fields that can be modified are:
-  * Both ```http_url``` 
+  * Both ```http_url``` to your desired HTTP GET API. These files will be pushed to your github repo.
   * ```merge_strategy``` with options (overwrite, objectMerge, version)
 
 ```python
@@ -49,4 +49,4 @@ jobs:
 
 
 # Feedback
-We would love to receive feedback on the action from users to understand how we can improve.
+* We would love to receive feedback on the action from users to understand how we can improve.
