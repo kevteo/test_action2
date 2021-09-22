@@ -1,1 +1,41 @@
 # test_action2
+
+
+'''python
+name: ai-sdk
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+        - main
+        - development
+  schedule:
+    - cron: "*/5 * * * *"
+jobs:
+  ai-sdk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup deno
+        uses: denoland/setup-deno@main
+        with:
+          deno-version: v1.x
+      - name: Check out repo
+        uses: actions/checkout@v2
+      - name: Fetch data 1
+        uses: githubocto/flat@v3
+        with:
+          http_url: https://api.coindesk.com/v2/bpi/currentprice.json
+          downloaded_filename: json1.json
+      - name: Fetch data 2
+        uses: githubocto/flat@v3
+        with:
+          http_url: https://free.currconv.com/api/v7/convert?q=USD_PHP&compact=ultra&apiKey=4709550d97d6056b11e5
+          downloaded_filename: json2.json
+      - name: Merge Data
+        id: mergeData
+        #uses: 0research/ai-sdk@main
+        uses: kevteo/test_action2@main
+        with:
+          merge_strategy: objectMerge   
+'''
