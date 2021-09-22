@@ -6,13 +6,12 @@ AI-SDK Action allows users to
 
 
 # Usage
-Fields that can be modified
-1. Both ```http_url```
-2. ```merge_strategy``` with options (overwrite, objectMerge, version)
+* Under ```on```. Users are required to configure code to their specific needs.
+* Under ```jobs```, the fields that can be modified are:
+* 1. Both ```http_url``` 
+* 2. ```merge_strategy``` with options (overwrite, objectMerge, version)
 
 ```python
-name: ai-sdk
-
 on:
   workflow_dispatch: {}
   push:
