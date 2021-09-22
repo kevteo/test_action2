@@ -8,8 +8,8 @@ AI-SDK Action allows users to
 # Usage
 * Under ```on```. Users are required to configure code to their specific needs.
 * Under ```jobs```, the fields that can be modified are:
-** Both ```http_url``` 
-** ```merge_strategy``` with options (overwrite, objectMerge, version)
+  * Both ```http_url``` 
+  * ```merge_strategy``` with options (overwrite, objectMerge, version)
 
 ```python
 on:
