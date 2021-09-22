@@ -1,7 +1,7 @@
 # test_action2
 
 
-'''python
+```python
 name: ai-sdk
 
 on:
@@ -38,4 +38,4 @@ jobs:
         uses: kevteo/test_action2@main
         with:
           merge_strategy: objectMerge   
-'''
+```
