@@ -15,8 +15,10 @@ def json_merge(base, new, merge_strategy):
 
 def main():
     # Read Inputs
-    merge_strategy = str(os.environ["INPUT_MERGE_STRATEGY"])
-    branch = str(os.environment["GITHUB_REF"])
+    merge_strategy = os.environ["INPUT_MERGE_STRATEGY"]
+    branch = os.environment["GITHUB_REF"]
+    merge_strategy = str(merge_strategy)
+    branch = str(branch)
     
     # Print
     print("Merge Strategy: ", merge_strategy)
@@ -59,12 +61,13 @@ def main():
     print(repo.git.status())
     
     repo.index.commit('Upload Merged Json')
-    origin = repo.remote('origin HEAD~1:'+branch)
+    origin = repo.remote('origin')
     origin.push()
     
     print('here3')
     print(repo.git.status())
-
+    
+    repo.index.add(['json1.json', 'json2.json])
 
 if __name__ == "__main__":
     main()
