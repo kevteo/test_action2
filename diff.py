@@ -50,6 +50,8 @@ def main():
     repo.index.add(['merged_json.json'])
     print('here2')
     print(repo.git.status())
+    print('here3')
+    print(repo.git.log(p=True))
     repo.index.commit('Upload Merged Json')
     origin = repo.remote('origin')
     origin.push()
