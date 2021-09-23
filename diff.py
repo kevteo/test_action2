@@ -41,6 +41,9 @@ def main():
     
     # Push to Git
     repo = Repo('.')
+    username = "ai-sdk"
+    repo.config_writer().set_value("user", "name", username).release()
+    repo.config_writer().set_value("user", "email", username+"@users.noreply.github.com").release()
     repo.git.reset()
     repo.index.add(['merged_json.json', 'difference.json'])
     repo.index.commit('Upload Merged Json')
